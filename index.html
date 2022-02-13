@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Draw signature online</title>
+  <link rel = "icon" href ="icon.png" type = "image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+ <!-- partial:index.partial.html -->
+ <main class = "ma">
+	<h1>DRAW & DOWNLOAD<BR>DIGITAL SIGNATURE</h1>
+		<div class ="para"><hr><p>
+			Draw with your finger on our online signature pad to create your digital signature for free. Use your IPhone, IPad, Android based mobiles phones, Tablets, computers, Laptops, etc. to make your own electronic signature.
+		</p></div>
+		<div class="cen">
+	<div class="memo">
+		<!--<div class="vemom">
+			<img src="./assets/Bog-post/post-1.jpg">
+		</div>--->
+		<div class="rdj">
+		   <!--<h1 style="font-size:20px;">write title</h1>-->
+		</div>
+		<div class="rvsd">
+			<fieldset>
+		<legend>Please Sign</legend>
+		<signature-input ref="sig" height="400" width="800" v-model="signature"></signature-input>
+		<button class="bttn"
+			@click="clearSignature"
+		><b>Clear</b></button>&nbsp;&nbsp;&nbsp;
+		<button class="bttn">
+		 <a
+			:href="signature"
+			download="signature.png"
+		 ><b> Download</b></a>
+		</button>
+	</fieldset>
+			
+		</div>
+	 </div></div>
+
+	 <div class ="para"><hr><p><h2>What does your signature
+		say about you?</h2><br>Even though signature analysis isn't a formal science, we can certainly conclude that your signature and handwriting are a reflection of your personality. After all, no one else on the planet has your signature. Let's examine what your signature says about you by assessing various features and examining the signatures (and calligraphy styles) of some of history's most successful businessmen and ladies.
+	
+	   </p><br><hr>
+	   <div  class="sub">
+	   <p>
+		   <h3>What is a Signature Maker?</h3><br>
+		   A signature maker (or signature generator) is an online tool you can use to create an online signature to sign documents. You can draw or type your signature, customize it to make it unique, and download it to sign digital documents.<br><br>
+		   <h3>Are you going to use my signature after I create one on this page?</h3><br>
+		   Absolutely not. Any signature created on this page through our signature maker is not saved on our servers. We won’t save a record of your signature (or document) or share it with others.<br><br>
+		   <h3>How do I create a signature?</h3><br>
+		   Simply draw your signature on the signature pad. You can also use your mouse or tablet to draw your signature.
+		   <br><br>
+		   <h3>Can I sign any kind of document with an eSignature I download from this site?</h3><br>
+		   Yes, you can. Sign as many documents as you need and your signature will be legally binding. You can use your downloaded signature to sign your own documents or documents you are requested to sign by others. Use our signature maker to sign any kind of document such as contracts, forms, proposals, Word documents, PDFs and more. It’s easier than ever to add a signature to any kind of document.</p>
+       </div>
+
+    </div><hr>
+	<div class ="fo"> <p class="tfo"> OpenSource Project<br><a href="
+		#">Click Here To <B><u>CONTRIBUTE</u></B></a> </p></div>
+ <!-----
+	<fieldset>
+		<legend>Please Sign</legend>
+		<signature-input ref="sig" width="600" height="600" v-model="signature"></signature-input>
+		<button
+			@click="clearSignature"
+		>Clear</button>
+		<a
+			:href="signature"
+			download="signature.png"
+		>Download</a>
+	</fieldset>--->
+ </main>
+ <template id="signature-input">
+	<div
+		class="SignatureInput"
+	>
+		<div
+		  class="SignatureInput-line"
+			:style="{width: width + 'px'}"
+		>&times;</div>
+		<canvas 
+			style="display: block;"
+			ref="canvas"
+			:height="height"
+			:width="width"
+			@mousemove.prevent="$event.buttons == 1 && drawLineTo($event)"
+			@touchmove.prevent="drawLineTo($event.touches[0])"
+			@touchend.prevent="update"
+			@mouseout="update"
+			@mouseup="update"
+		></canvas>
+	</div>
+ </template>
+ <!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.1/vue.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>
